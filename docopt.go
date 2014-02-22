@@ -66,6 +66,11 @@ func Parse(doc string, argv []string, help bool, version string,
 	return args, err
 }
 
+func ParseContinue(doc string, argv []string, help bool, version string, optionsFirst bool) (map[string]interface{}, string, error) {
+    args, output, err := parse(doc, argv, help, version, optionsFirst)
+    return args, output, err
+}
+
 // parse and return a map of args, output and all errors
 func parse(doc string, argv []string, help bool, version string, optionsFirst bool) (args map[string]interface{}, output string, err error) {
 	if argv == nil && len(os.Args) > 1 {
